@@ -1,0 +1,7 @@
+version: v2
+modules:
+  - path: simple
+  - path: twirp
+lint:
+  use:
+    - STANDARD

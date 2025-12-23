@@ -1,0 +1,130 @@
+syntax = "proto3";
+
+package exmaple.v1;
+
+option go_package = "github.com/dimelords/protoc-gen-utcp/examples/twirp;twirp";
+
+// Documents service manages document operations
+service Documents {
+  // WriteDocument creates or updates a document
+  // This operation modifies data and requires user confirmation
+  rpc WriteDocument(WriteDocumentRequest) returns (WriteDocumentResponse);
+
+  // GetDocument retrieves a document by ID
+  rpc GetDocument(GetDocumentRequest) returns (GetDocumentResponse);
+
+  // DeleteDocument removes a document
+  // This operation is destructive and requires user confirmation
+  rpc DeleteDocument(DeleteDocumentRequest) returns (DeleteDocumentResponse);
+
+  // ListDocuments returns a list of documents
+  rpc ListDocuments(ListDocumentsRequest) returns (ListDocumentsResponse);
+}
+
+// WriteDocumentRequest contains document data to write
+message WriteDocumentRequest {
+  // Unique identifier for the document
+  string uuid = 1;
+
+  // Document content in JSON format
+  string content = 2;
+
+  // Organizational unit
+  string unit = 3;
+
+  // Optional repository name
+  string repository = 4;
+}
+
+// WriteDocumentResponse returns the written document details
+message WriteDocumentResponse {
+  // UUID of the written document
+  string uuid = 1;
+
+  // Revision identifier
+  string revision = 2;
+
+  // Version number
+  int64 version = 3;
+}
+
+// GetDocumentRequest specifies which document to retrieve
+message GetDocumentRequest {
+  // UUID of the document to retrieve
+  string uuid = 1;
+
+  // Optional version to retrieve (latest if not specified)
+  int64 version = 2;
+
+  // Optional repository name
+  string repository = 3;
+}
+
+// GetDocumentResponse contains the retrieved document
+message GetDocumentResponse {
+  // Document content
+  string content = 1;
+
+  // Current revision
+  string revision = 2;
+
+  // Current version
+  int64 version = 3;
+}
+
+// DeleteDocumentRequest specifies which document to delete
+message DeleteDocumentRequest {
+  // UUID of the document to delete
+  string uuid = 1;
+
+  // Organizational unit
+  string unit = 2;
+
+  // Optional repository name
+  string repository = 3;
+}
+
+// DeleteDocumentResponse confirms deletion
+message DeleteDocumentResponse {
+  // Whether the document was deleted
+  bool deleted = 1;
+}
+
+// ListDocumentsRequest specifies listing parameters
+message ListDocumentsRequest {
+  // Organizational unit to list from
+  string unit = 1;
+
+  // Maximum number of documents to return
+  int32 limit = 2;
+
+  // Offset for pagination
+  int32 offset = 3;
+
+  // Optional repository name
+  string repository = 4;
+}
+
+// ListDocumentsResponse contains the list of documents
+message ListDocumentsResponse {
+  // List of document summaries
+  repeated DocumentSummary documents = 1;
+
+  // Total count of documents
+  int64 total_count = 2;
+}
+
+// DocumentSummary provides basic document information
+message DocumentSummary {
+  // Document UUID
+  string uuid = 1;
+
+  // Document type
+  string type = 2;
+
+  // Created timestamp
+  int64 created_at = 3;
+
+  // Last modified timestamp
+  int64 modified_at = 4;
+}

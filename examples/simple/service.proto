@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package example.v1;
+
+option go_package = "github.com/dimelords/protoc-gen-utcp/examples/simple;simple";
+
+// GreetingService provides greeting functionality
+service GreetingService {
+  // SayHello returns a greeting message
+  rpc SayHello(HelloRequest) returns (HelloResponse);
+
+  // SayGoodbye returns a farewell message
+  rpc SayGoodbye(GoodbyeRequest) returns (GoodbyeResponse);
+}
+
+// HelloRequest contains the name to greet
+message HelloRequest {
+  // Name of the person to greet (required)
+  string name = 1;
+
+  // Optional greeting style
+  GreetingStyle style = 2;
+}
+
+// HelloResponse contains the greeting message
+message HelloResponse {
+  // The greeting message
+  string message = 1;
+
+  // Timestamp of the greeting
+  int64 timestamp = 2;
+}
+
+// GoodbyeRequest contains the name for farewell
+message GoodbyeRequest {
+  // Name of the person
+  string name = 1;
+}
+
+// GoodbyeResponse contains the farewell message
+message GoodbyeResponse {
+  // The farewell message
+  string message = 1;
+}
+
+// GreetingStyle defines different greeting styles
+enum GreetingStyle {
+  GREETING_STYLE_UNSPECIFIED = 0;
+  GREETING_STYLE_FORMAL = 1;
+  GREETING_STYLE_CASUAL = 2;
+  GREETING_STYLE_ENTHUSIASTIC = 3;
+}
