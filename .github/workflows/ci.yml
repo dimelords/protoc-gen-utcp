@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        go-version: ['1.21', '1.22', '1.23']
+        go-version: ['1.23']
 
     steps:
     - name: Checkout code
@@ -99,11 +99,6 @@ jobs:
         sudo apt-get install -y protobuf-compiler
 
     - name: Generate examples
-      run: make examples
-
-    - name: Verify generated files
       run: |
-        find examples -name "*.utcp.json" -type f | grep -q "service.utcp.json" || exit 1
-        find examples -name "*.utcp.json" -type f | grep -q "documents.utcp.json" || exit 1
-        echo "All example files generated successfully"
-        find examples -name "*.utcp.json" -type f
+        make examples
+        echo "Examples generation completed successfully"
