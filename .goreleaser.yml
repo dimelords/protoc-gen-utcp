@@ -34,7 +34,6 @@ builds:
 
 archives:
   - id: default
-    format: tar.gz
     name_template: >-
       {{ .ProjectName }}_
       {{- .Version }}_
@@ -43,9 +42,9 @@ archives:
       {{- else if eq .Arch "386" }}i386
       {{- else }}{{ .Arch }}{{ end }}
       {{- if .Arm }}v{{ .Arm }}{{ end }}
-    format_overrides:
-      - goos: windows
-        format: zip
+    builds:
+      - protoc-gen-utcp
+    rlcp: true
     files:
       - LICENSE
       - README.md
@@ -105,8 +104,7 @@ release:
     **Full Changelog**: https://github.com/dimelords/protoc-gen-utcp/compare/{{ .PreviousTag }}...{{ .Tag }}
 
 brews:
-  - name: protoc-gen-utcp
-    repository:
+  - repository:
       owner: dimelords
       name: homebrew-tap
       token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
