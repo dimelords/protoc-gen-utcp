@@ -42,8 +42,6 @@ archives:
       {{- else if eq .Arch "386" }}i386
       {{- else }}{{ .Arch }}{{ end }}
       {{- if .Arm }}v{{ .Arm }}{{ end }}
-    builds:
-      - protoc-gen-utcp
     files:
       - LICENSE
       - README.md
@@ -102,7 +100,7 @@ release:
 
     **Full Changelog**: https://github.com/dimelords/protoc-gen-utcp/compare/{{ .PreviousTag }}...{{ .Tag }}
 
-brews:
+homebrew:
   - repository:
       owner: dimelords
       name: homebrew-tap
