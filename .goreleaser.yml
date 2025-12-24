@@ -100,7 +100,10 @@ release:
 
     **Full Changelog**: https://github.com/dimelords/protoc-gen-utcp/compare/{{ .PreviousTag }}...{{ .Tag }}
 
-homebrew:
+# Homebrew formula publishing
+# Note: 'brews' is still the correct field name in GoReleaser v2
+# The deprecation warning refers to it being phased out in favor of separate tap repos
+brews:
   - repository:
       owner: dimelords
       name: homebrew-tap
@@ -109,7 +112,6 @@ homebrew:
     homepage: https://github.com/dimelords/protoc-gen-utcp
     description: "Protocol Buffer compiler plugin that generates UTCP definitions"
     license: MIT
-    # Only upload to Homebrew if token is set
     skip_upload: auto
     install: |
       bin.install "protoc-gen-utcp"
