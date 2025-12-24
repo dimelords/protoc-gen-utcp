@@ -46,6 +46,19 @@ make test
 - Reference related issues in commits
 - Keep commits focused and atomic
 
+### Dependency Management (with Claude Code)
+
+If you're using Claude Code for development:
+
+- Run `/dependency-check` before commits to verify dependencies
+- Claude will automatically check dependencies against Context7 for best practices
+- Dependencies are validated for:
+  - Version compatibility
+  - Security vulnerabilities
+  - Deprecated APIs
+  - Breaking changes
+- See `.claude/skills/dependency-check.md` for details
+
 ### Pull Requests
 
 1. Create a feature branch from `main`
