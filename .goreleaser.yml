@@ -44,7 +44,6 @@ archives:
       {{- if .Arm }}v{{ .Arm }}{{ end }}
     builds:
       - protoc-gen-utcp
-    rlcp: true
     files:
       - LICENSE
       - README.md
