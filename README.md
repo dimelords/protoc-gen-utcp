@@ -22,11 +22,26 @@ A Protocol Buffer compiler plugin that generates [UTCP (Universal Tool Calling P
 
 ## Installation
 
+### Using go install (recommended)
+
 ```bash
 go install github.com/dimelords/protoc-gen-utcp/cmd/protoc-gen-utcp@latest
 ```
 
-Or build from source:
+### Using Homebrew (macOS/Linux)
+
+```bash
+brew tap dimelords/tap
+brew install protoc-gen-utcp
+```
+
+> **Note:** Homebrew tap will be available once the repository maintainer configures the `HOMEBREW_TAP_GITHUB_TOKEN` secret. See [Homebrew Setup Guide](.github/HOMEBREW_SETUP.md) for details.
+
+### Download pre-built binaries
+
+Download the latest release for your platform from the [releases page](https://github.com/dimelords/protoc-gen-utcp/releases).
+
+### Build from source
 
 ```bash
 git clone https://github.com/dimelords/protoc-gen-utcp.git

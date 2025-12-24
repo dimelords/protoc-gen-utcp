@@ -114,7 +114,8 @@ brews:
     homepage: https://github.com/dimelords/protoc-gen-utcp
     description: "Protocol Buffer compiler plugin that generates UTCP definitions"
     license: MIT
-    skip_upload: auto
+    # Only upload to Homebrew if token is set
+    skip_upload: '{{ not (env "HOMEBREW_TAP_GITHUB_TOKEN") }}'
     install: |
       bin.install "protoc-gen-utcp"
     test: |
