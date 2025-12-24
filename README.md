@@ -1,5 +1,10 @@
 # protoc-gen-utcp
 
+[![CI](https://github.com/dimelords/protoc-gen-utcp/actions/workflows/ci.yml/badge.svg)](https://github.com/dimelords/protoc-gen-utcp/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/dimelords/protoc-gen-utcp/actions/workflows/codeql.yml/badge.svg)](https://github.com/dimelords/protoc-gen-utcp/actions/workflows/codeql.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/dimelords/protoc-gen-utcp)](https://goreportcard.com/report/github.com/dimelords/protoc-gen-utcp)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A Protocol Buffer compiler plugin that generates [UTCP (Universal Tool Calling Protocol)](https://github.com/universal-tool-calling-protocol/utcp-specification) definitions from `.proto` files.
 
 ## Overview
