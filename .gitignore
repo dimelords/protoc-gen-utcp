@@ -36,3 +36,4 @@ Thumbs.db
 examples/**/*.utcp.json
 examples/**/*.pb.go
 examples/**/*_grpc.pb.go
+github.com/
