@@ -359,6 +359,13 @@ make examples
 make install
 ```
 
+## Documentation
+
+- [Proto → UTCP Mapping](docs/proto-to-utcp-mapping.md) — how proto types, names, and comments map to UTCP fields
+- [Configuration Reference](docs/configuration.md) — all `--utcp_opt` options and URL conventions
+- [Serving the Output](docs/serving-utcp-output.md) — how to expose the generated JSON to UTCP clients
+- [Annotations and Metadata](docs/annotations-and-metadata.md) — what metadata is supported and current limitations
+
 ## UTCP Specification
 
 This plugin generates UTCP-compliant JSON following the official specification:
